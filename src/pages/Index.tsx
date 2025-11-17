@@ -49,17 +49,53 @@ const Index = () => {
     },
     hero: {
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #1a2332 0%, #2d3e50 100%)',
+      background: 'linear-gradient(135deg, rgba(26, 35, 50, 0.9) 0%, rgba(45, 62, 80, 0.9) 100%)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       textAlign: 'center' as const,
       padding: '2rem',
       marginTop: '60px',
+      position: 'relative' as const,
+    },
+    heroBackground: {
+      position: 'absolute' as const,
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover' as const,
+      opacity: 0.3,
+      zIndex: 0,
     },
     heroContent: {
       maxWidth: '900px',
       color: '#ffffff',
+      position: 'relative' as const,
+      zIndex: 1,
+    },
+    imageGallery: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: '2rem',
+      marginTop: '3rem',
+    },
+    galleryImage: {
+      width: '100%',
+      height: '250px',
+      objectFit: 'cover' as const,
+      borderRadius: '10px',
+      boxShadow: '0 5px 20px rgba(0,0,0,0.2)',
+      transition: 'transform 0.3s',
+    },
+    productImage: {
+      width: '100%',
+      height: '200px',
+      objectFit: 'cover' as const,
+      borderRadius: '10px 10px 0 0',
     },
     heroTitle: {
       fontSize: '3.5rem',
@@ -275,6 +311,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" style={styles.hero}>
+        <img src="/images/hero-1.jpg" alt="DS Engineering Foundry Equipment" style={styles.heroBackground} />
         <div style={styles.heroContent}>
           <h1 style={styles.heroTitle}>
             <span style={styles.heroHighlight}>Excellence</span> in Foundry Solutions
@@ -410,7 +447,33 @@ const Index = () => {
           Our Services
           <div style={styles.sectionTitleUnderline}></div>
         </h2>
-        <div style={styles.aboutGrid}>
+        
+        {/* Service Images Gallery */}
+        <div style={styles.imageGallery}>
+          <img 
+            src="/images/sand-plant.jpg" 
+            alt="Phenolic Sand Plant Equipment" 
+            style={styles.galleryImage}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+          <img 
+            src="/images/heat-treatment.jpg" 
+            alt="Heat Treatment Furnaces" 
+            style={styles.galleryImage}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+          <img 
+            src="/images/furnace-1.jpg" 
+            alt="Industrial Furnace Solutions" 
+            style={styles.galleryImage}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+        </div>
+
+        <div style={{ ...styles.aboutGrid, marginTop: '4rem' }}>
           <div
             style={styles.card}
             onMouseEnter={(e) => {
@@ -488,7 +551,33 @@ const Index = () => {
           Our Key Machines
           <div style={styles.sectionTitleUnderline}></div>
         </h2>
-        <div style={styles.productsGrid}>
+        
+        {/* Product Images Gallery */}
+        <div style={styles.imageGallery}>
+          <img 
+            src="/images/machines-1.jpg" 
+            alt="Sand Processing Machines" 
+            style={styles.galleryImage}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+          <img 
+            src="/images/machines-2.jpg" 
+            alt="Industrial Equipment" 
+            style={styles.galleryImage}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+          <img 
+            src="/images/furnace-2.jpg" 
+            alt="Furnace Systems" 
+            style={styles.galleryImage}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+        </div>
+
+        <div style={{ ...styles.productsGrid, marginTop: '4rem' }}>
           <div
             style={styles.productCard}
             onMouseEnter={(e) => {
